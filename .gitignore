@@ -59,3 +59,7 @@ app/generated/prisma/
 .windsurf/
 
 skills-lock.json
+
+# Cloudflare / OpenNext build artifacts
+.open-next/
+.wrangler/

@@ -1,0 +1,33 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"main": ".open-next/worker.js",
+	"name": "vionivo",
+	"compatibility_date": "2026-08-17",
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"vars": {
+                "BETTER_AUTH_URL": "https://vionivo.hemat-mohamadi1356.workers.dev"
+        },
+        "services": [
+		{
+			// Self-reference service binding, the service name must match the worker name
+			// see https://opennext.js.org/cloudflare/caching
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "vionivo"
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "vionivo_db",
+			"database_name": "vionivo-db",
+			"database_id": "cc7cc079-ac90-4f28-bb9b-946815eddbb9",
+			"remote": true
+		}
+	]
+}
