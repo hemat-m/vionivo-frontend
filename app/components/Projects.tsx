@@ -1,6 +1,8 @@
 import { prisma } from "../lib/prisma";
+import { getDictionary, type Locale } from "@/app/lib/get-dictionary";
 
-export default async function Projects() {
+export default async function Projects({ locale }: { locale: Locale }) {
+  const dictionary = getDictionary(locale);
   const projects = await prisma.project.findMany({
     where: {
       published: true,
@@ -26,19 +28,18 @@ export default async function Projects() {
           <div className="max-w-3xl">
             <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
               <span className="h-px w-10 bg-cyan-400" />
-              Selected Projects
+              {dictionary.projects.eyebrow}
             </div>
 
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Building practical technology{" "}
+              {dictionary.projects.titleStart}{" "}
               <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
-                for real projects.
+                {dictionary.projects.titleHighlight}
               </span>
             </h2>
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
-              VIONIVO focuses on solutions that connect engineering knowledge
-              with modern software, automation, and artificial intelligence.
+              {dictionary.projects.description}
             </p>
           </div>
 
@@ -46,7 +47,7 @@ export default async function Projects() {
             href="#contact"
             className="w-fit rounded-full border border-cyan-400/30 bg-cyan-400/5 px-6 py-3 text-sm font-semibold text-cyan-300 transition duration-300 hover:border-cyan-400/60 hover:bg-cyan-400/10"
           >
-            Start a Project
+            {dictionary.projects.startProject}
           </a>
         </div>
 
@@ -88,7 +89,7 @@ export default async function Projects() {
                     href="#contact"
                     className="inline-flex items-center gap-2 text-sm font-semibold text-gray-300 transition group-hover:text-cyan-300"
                   >
-                    Explore Project
+                    {dictionary.projects.exploreProject}
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
                       →
                     </span>

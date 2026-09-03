@@ -2,22 +2,30 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import type { Locale } from "@/app/lib/get-dictionary";
 
-const navigation = [
-  { name: "Home", href: "#home" },
-  { name: "Services", href: "#services" },
-  { name: "Projects", href: "#projects" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
-];
+type HeaderProps = {
+  locale: Locale;
+};
 
-export default function Header() {
+export default function Header({ locale }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navigation = [
+    { name: locale === "fa" ? "خانه" : "Home", href: "#home" },
+    { name: locale === "fa" ? "خدمات" : "Services", href: "#services" },
+    { name: locale === "fa" ? "پروژه‌ها" : "Projects", href: "#projects" },
+    { name: locale === "fa" ? "درباره ما" : "About", href: "#about" },
+    { name: locale === "fa" ? "تماس" : "Contact", href: "#contact" },
+  ];
+
+  const getStarted = locale === "fa" ? "شروع همکاری" : "Get Started";
+  const toggleMenu = locale === "fa" ? "باز و بسته کردن منو" : "Toggle menu";
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#07111f]/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        
+
         {/* Logo */}
         <a
           href="#home"
@@ -52,13 +60,13 @@ export default function Header() {
           href="#contact"
           className="hidden rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-[#07111f] transition hover:bg-cyan-300 md:block"
         >
-          Get Started
+          {getStarted}
         </a>
 
         {/* Mobile Button */}
         <button
           type="button"
-          aria-label="Toggle menu"
+          aria-label={toggleMenu}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
           className="rounded-lg border border-white/10 px-3 py-2 text-white transition hover:bg-white/10 md:hidden"
@@ -87,7 +95,7 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
               className="mt-2 rounded-full bg-cyan-400 px-5 py-3 text-center font-semibold text-[#07111f]"
             >
-              Get Started
+              {getStarted}
             </a>
           </nav>
         </div>

@@ -1,35 +1,29 @@
-const services = [
-  {
-    number: "01",
-    title: "Engineering",
-    label: "ENGINEERING",
-    description:
-      "Engineering solutions, technical documentation, project support, and digital tools for modern engineering projects.",
-  },
-  {
-    number: "02",
-    title: "AI Solutions",
-    label: "ARTIFICIAL INTELLIGENCE",
-    description:
-      "Intelligent systems that help engineering teams analyze documents, automate workflows, and make better decisions.",
-  },
-  {
-    number: "03",
-    title: "Document Control",
-    label: "DOCUMENT CONTROL",
-    description:
-      "Professional document management, revision control, drawing management, and project information tracking.",
-  },
-  {
-    number: "04",
-    title: "Automation",
-    label: "AUTOMATION",
-    description:
-      "Automation of repetitive engineering and business processes using modern software and intelligent technologies.",
-  },
-];
 
-export default function Services() {
+
+import { getDictionary, type Locale } from "@/app/lib/get-dictionary";
+
+export default function Services({ locale }: { locale: Locale }) {
+  const dictionary = getDictionary(locale);
+
+  const services = [
+    {
+      number: "01",
+      ...dictionary.services.items.engineering,
+    },
+    {
+      number: "02",
+      ...dictionary.services.items.ai,
+    },
+    {
+      number: "03",
+      ...dictionary.services.items.documentControl,
+    },
+    {
+      number: "04",
+      ...dictionary.services.items.automation,
+    },
+  ];
+
   return (
     <section
       id="services"
@@ -47,19 +41,17 @@ export default function Services() {
         <div className="max-w-3xl">
           <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
             <span className="h-px w-10 bg-cyan-400" />
-            What We Do
+            {dictionary.services.eyebrow}
           </div>
 
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
-            Engineering meets{" "}
             <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
-              technology.
+              {dictionary.services.title}
             </span>
           </h2>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
-            VIONIVO combines engineering knowledge, software, automation, and
-            artificial intelligence to build practical digital solutions.
+            {dictionary.services.description}
           </p>
         </div>
 

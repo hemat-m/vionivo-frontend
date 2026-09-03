@@ -55,7 +55,8 @@
   },
   "projects": {
     "eyebrow": "Selected Projects",
-    "title": "Building practical technology for real projects.",
+    "titleStart": "Building practical technology",
+    "titleHighlight": "for real projects.",
     "description": "Explore selected VIONIVO projects that connect engineering expertise with modern digital technology and intelligent automation.",
     "startProject": "Start a Project",
     "exploreProject": "Explore Project"
