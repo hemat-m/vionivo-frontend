@@ -1,8 +1,11 @@
 "use client";
 
+import { getDictionary, type Locale } from "@/app/lib/get-dictionary";
+
 import { FormEvent, useState } from "react";
 
-export default function Contact() {
+export default function Contact({ locale }: { locale: Locale }) {
+  const dictionary = getDictionary(locale);
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
@@ -64,20 +67,19 @@ export default function Contact() {
         <div className="text-center">
           <div className="mb-5 flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
             <span className="h-px w-10 bg-cyan-400" />
-            Contact
+            {dictionary.contact.eyebrow}
             <span className="h-px w-10 bg-cyan-400" />
           </div>
 
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
-            Let&apos;s build something{" "}
+            {dictionary.contact.titleStart}{" "}
             <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
-              useful.
+              {dictionary.contact.titleHighlight}
             </span>
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
-            Have an engineering, automation, software, or AI project?
-            Let&apos;s talk.
+            {dictionary.contact.description}
           </p>
         </div>
 
@@ -106,7 +108,7 @@ export default function Contact() {
             <input
               name="company"
               maxLength={150}
-              placeholder="Company"
+              placeholder={dictionary.contact.company}
               className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-white outline-none placeholder:text-gray-500 focus:border-cyan-400/50"
             />
 
@@ -116,14 +118,14 @@ export default function Contact() {
               className="rounded-2xl border border-white/10 bg-[#0b1726] px-5 py-4 text-gray-300 outline-none focus:border-cyan-400/50"
             >
               <option value="" disabled>
-                Project type
+                {dictionary.contact.projectType}
               </option>
-              <option value="Engineering">Engineering</option>
-              <option value="AI">AI</option>
-              <option value="Document Control">Document Control</option>
-              <option value="Automation">Automation</option>
-              <option value="Software">Software</option>
-              <option value="Other">Other</option>
+              <option value="Engineering">{dictionary.contact.options.engineering}</option>
+              <option value="AI">{dictionary.contact.options.ai}</option>
+              <option value="Document Control">{dictionary.contact.options.documentControl}</option>
+              <option value="Automation">{dictionary.contact.options.automation}</option>
+              <option value="Software">{dictionary.contact.options.software}</option>
+              <option value="Other">{dictionary.contact.options.other}</option>
             </select>
           </div>
 
@@ -132,7 +134,7 @@ export default function Contact() {
             required
             maxLength={5000}
             rows={6}
-            placeholder="Tell us about your project..."
+            placeholder={dictionary.contact.messagePlaceholder}
             className="mt-5 w-full resize-none rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-white outline-none placeholder:text-gray-500 focus:border-cyan-400/50"
           />
 
@@ -142,7 +144,7 @@ export default function Contact() {
               disabled={status === "sending"}
               className="rounded-full bg-cyan-400 px-7 py-3.5 font-semibold text-[#07111f] transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {status === "sending" ? "Sending..." : "Send Message →"}
+              {status === "sending" ? dictionary.contact.sending : dictionary.contact.sendMessage}
             </button>
 
             {message && (

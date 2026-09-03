@@ -121,11 +121,11 @@ export default async function LocalePage({
 
       <Projects locale={locale as Locale} />
 
-      <About />
+      <About locale={locale as Locale} />
 
-      <Contact />
+      <Contact locale={locale as Locale} />
 
-      <Footer />
+      <Footer locale={locale as Locale} />
     </main>
   );
 }

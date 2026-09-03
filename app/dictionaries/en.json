@@ -63,46 +63,45 @@
   },
   "about": {
     "eyebrow": "About",
-    "title": "Engineering knowledge. Digital thinking.",
+    "titleStart": "Engineering knowledge.",
+    "titleHighlight": "Digital thinking.",
     "description": "VIONIVO is being built as a technology platform connecting engineering, software, automation, and artificial intelligence to create practical solutions for real-world projects.",
     "items": {
       "engineering": {
+        "number": "01",
         "title": "Engineering",
         "description": "Real-world technical knowledge."
       },
       "technology": {
+        "number": "02",
         "title": "Technology",
         "description": "Modern software and digital workflows."
       },
       "intelligence": {
+        "number": "03",
         "title": "Intelligence",
         "description": "AI-powered practical solutions."
       }
     }
   },
   "contact": {
-    "eyebrow": "Contact",
-    "title": "Let's build something",
-    "titleAccent": "useful.",
-    "description": "Have an engineering, automation, software, or AI project? Let's talk.",
-    "name": "Your name",
-    "email": "Email address",
     "company": "Company",
     "projectType": "Project type",
-    "message": "Tell us about your project...",
-    "sending": "Sending...",
-    "send": "Send Message →",
-    "success": "Your message has been received. We will get back to you.",
-    "errorFallback": "Unable to send your message.",
-    "errorGeneric": "Something went wrong.",
-    "projectTypes": {
+    "options": {
       "engineering": "Engineering",
       "ai": "AI",
       "documentControl": "Document Control",
       "automation": "Automation",
       "software": "Software",
       "other": "Other"
-    }
+    },
+    "messagePlaceholder": "Tell us about your project...",
+    "sending": "Sending...",
+    "sendMessage": "Send Message →",
+    "eyebrow": "Contact",
+    "description": "Have an engineering, automation, software, or AI project? Let's talk.",
+    "titleStart": "Let's build something",
+    "titleHighlight": "useful."
   },
   "footer": {
     "description": "Engineering, technology, automation, and artificial intelligence brought together to build practical digital solutions.",
@@ -111,7 +110,14 @@
     "engineeringTechnology": "Engineering & Technology",
     "aiAutomation": "AI & Automation",
     "digitalSolutions": "Digital Solutions",
-    "allRightsReserved": "All rights reserved.",
-    "tagline": "Engineering • Technology • Innovation"
+    "rights": "All rights reserved.",
+    "tagline": "Engineering • Technology • Innovation",
+    "links": {
+      "home": "Home",
+      "services": "Services",
+      "projects": "Projects",
+      "about": "About",
+      "contact": "Contact"
+    }
   }
 }

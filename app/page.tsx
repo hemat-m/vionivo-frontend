@@ -97,10 +97,10 @@ export default function Home() {
 
       <Projects locale="en" />
 
-      <About />
+      <About locale="en" />
 
-      <Contact />
-      <Footer />
+      <Contact locale="en" />
+      <Footer locale="en" />
     </main>
   );
 }
